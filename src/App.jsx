@@ -9,6 +9,7 @@ import Details from './pages/details/Details'
 import Home from './pages/home/Home'
 import Explore from './pages/explore/Explore'
 import { useEffect } from 'react'
+import MovieList from './components/moiveList/movieList'
 
 function App() {
   // useEffect(()=> {
@@ -19,16 +20,19 @@ function App() {
   //                .then(res=>res.json())
   //                .then(data=> console.log(data));  
   // }
+  
   return (
     <div>
    <BrowserRouter> 
 <Navbar/>
 <Routes>
   <Route path='/' element={<Home/>}/>
-  <Route path='/:mediaType/:id' element={<Details/>}/>
+  <Route path='movie/:id' element={<Details/>}/>
   <Route path='/explore/:mediaType' element={<Explore/>} />
   <Route path='/*' element={<PageNotFound/>} />
   <Route path='/search/:query' element={<SearchResults/>} />
+  <Route path='/:type' element={<MovieList/>} />
+  {/* <Route path='/:type' element={<MovieList/>} /> */}
 </Routes>
 <Footer/>
 </BrowserRouter>  

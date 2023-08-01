@@ -10,16 +10,23 @@ import Home from './pages/home/Home'
 import Explore from './pages/explore/Explore'
 import { useEffect } from 'react'
 import MovieList from './components/moiveList/movieList'
+import { fetchDataFromApi } from './utils/api'
+import { getApiConfiguration } from './store/homeSlice'
+import { useDispatch } from 'react-redux'
 
 function App() {
-  // useEffect(()=> {
-  //    apitesting()
-  // }, [])
-  // const apitesting = ()=> {
-  //       fetch("https://api.themoviedb.org/3/movie/550?api_key=821acf172e6be981ab5d87f9c4b97ddd")
-  //                .then(res=>res.json())
-  //                .then(data=> console.log(data));  
-  // }
+  const dispatch = useDispatch();
+  useEffect(()=> {
+     apitesting()
+  }, [])
+ const apitesting = ()=> {
+        fetchDataFromApi('/movie/popular')
+                 .then((res)=> {
+                  console.log(res);
+                  dispatch(getApiConfiguration(res));
+                 })
+                  
+  }
   
   return (
     <div>

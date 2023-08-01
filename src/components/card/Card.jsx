@@ -2,6 +2,7 @@ import React,{useEffect, useState} from "react";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import "./style.scss"
 import { Link } from "react-router-dom";
+import ContentWrapper from "../contentWrapper/ContentWrapper";
 
 
 const Cards = ({movie})=> {
